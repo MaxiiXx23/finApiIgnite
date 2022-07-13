@@ -125,4 +125,9 @@ app.get("/account", verifyIfExistsAccountCPF, (request, response) => {
     const { customer } = request
     return response.json(customer)
 })
+app.delete("/account", verifyIfExistsAccountCPF, (request, response) => {
+    const { customer } = request
+    customers.splice(customer,1)
+    return response.status(204).json()
+})
 app.listen(3333)
